@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anywhere Door Collection</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=Piazzolla:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map,
+        #pano {
+            height: 400px;
+            width: 49%;
+            /* Use half width for side-by-side view */
+            float: left;
+        }
+
+
+        .outerContainer{
+            display: flex;
+        }
+
+        .container {
+            margin-left: 385px;
+            width: 800px;
+            margin-top: 200px;
+        }
+
+
+        .input_box {
+            border: 1px solid black;
+            min-width: 350px;
+            height: 45px;
+            margin: 35px auto 0px;
+            box-sizing: border-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .input_bar {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px 0px 0px 8px;
+            display: block;
+            outline: none;
+            border: none;
+            background: transparent;
+            font-family: Lexend, sans-serif;
+            letter-spacing: 3px;
+            position: relative !important;
+            left: 0px !important;
+            right: 0px !important;
+        }
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+
+    <div id="text">
+        <div id="title">
+            <a href="/">Anywhere <br> Door <br> Collection </a>
+        </div>
+    </div>
+    
+
+    <div outerContainer>
+    <div class="container">
+
+        <h3>Where to Go</h3>
+        <!--The div element for the map -->
+
+        <div>
+            During the pandemic, if you have one chance to use the anywhere<br>door for a round
+            trip, where would you want to go? Drag the little<br>guy on the left map to preview in the street view!
+        </div>
+
+        <div class="input_box">
+            <input placeholder="Enter an address" class="input_bar" id="address" autocomplete="off">
+            <span onclick="showStreetView()"> Submit </span>
+        </div>
+        
+
+        <div id="map"></div>
+        <div id="pano"></div>
+        
+    </div>
+</div>
+
+
+
+
+
+    </div>
+
+    <script>
+        let map;
+        let panorama;
+        let geocoder;
+
+        function initMap() {
+            const defaultLocation = { lat: -34.397, lng: 150.644 };  // Default map center
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: defaultLocation
+            });
+            panorama = new google.maps.StreetViewPanorama(
+                document.getElementById('pano'), {
+                position: defaultLocation,
+                pov: {
+                    heading: 34,
+                    pitch: 10
+                }
+            });
+            map.setStreetView(panorama);
+            geocoder = new google.maps.Geocoder();
+        }
+
+        function showStreetView() {
+            const address = document.getElementById('address').value;
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status === 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    panorama.setPosition(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    console.log("saving to cache")
+                    sessionStorage.setItem('address', address);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will need your own API key-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&callback=initMap">
+
+
+
+
+        </script>
+
+
+
+</body>
+
+</html>

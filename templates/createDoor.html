@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anywhere Door Collection</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=Piazzolla:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+         .outer_container {
+            display: flex;
+            height: 100vh; /* Ensuring the full viewport height is utilized */
+        }
+        .container {
+            margin-left: 350px;
+            margin-top: 250px;
+            display: flex;
+            height: 100vh; /* Ensuring the full viewport height is utilized */
+        }
+
+
+        .scrollable-column {
+            flex: 1;
+            width: 50%; /* Only take up 20% of the viewport width */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For Internet Explorer and Edge */
+        }
+        .scrollable-column::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+
+        img {
+            width: 70%; /* Images will resize to fit the container width */
+            display: block; /* Ensures no inline whitespace gaps */
+            margin-bottom: 20px; /* Space between images */
+        }
+
+
+
+        .frame-container {
+            display: flex;
+        }
+        .frame-container img {
+            filter: none; /* Remove filter when active */
+            transition: filter 0.3s; /* Smooth transition for the filter effect */
+            filter: grayscale(100%); /* Start images in grayscale */
+            cursor: pointer; /* Indicates the images can be clicked */
+        }
+
+        .frame-container img.active {
+            filter: none; /* Remove filter when active */
+        }
+
+
+
+        .inner-container {
+            display: flex;
+        }
+        .inner-container img {
+            filter: none; /* Remove filter when active */
+            transition: filter 0.3s; /* Smooth transition for the filter effect */
+            filter: grayscale(100%); /* Start images in grayscale */
+            cursor: pointer; /* Indicates the images can be clicked */
+        }
+
+        .inner-container img.active {
+            filter: none; /* Remove filter when active */
+        }
+
+
+
+        .image-container {
+            position: relative;
+            width: 300px; /* Set the width of the container */
+            height: 200px; /* Set the height of the container */
+            overflow: hidden; /* Keeps everything neat */
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 100%; /* Adjust this value based on how large you want the images to display */
+        }
+        .image-container img:first-child {
+            z-index: -1; /* This ensures the first image is on top if needed */
+        }
+
+
+
+
+        .option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgb(136, 188, 116);
+            cursor: pointer;
+            transition: transform 0.4s ease 0s;
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        .optionarray {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="text">
+        <div id="title">
+            <a href="/">Anywhere <br> Door <br> Collection </a>
+        </div>
+    </div>
+
+    <div class="outer_container">
+
+        <div class="container">
+            <div class="scrollable-column">
+                {% for image in doorFrame_files %}
+                <div class="frame-container">
+                    <img src="{{ url_for('static', filename='../static/imga/doorFrame/' + image) }}" alt="{{ image }}">
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="image-container">
+                <img id="frame" alt="Image 1">
+                <img id="inner" alt="Image 2">
+            </div>
+
+            <div class="optionarray">
+                <div class="option" style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(136, 188, 116)"></div>
+                <div class="option" style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(234, 101, 94);"></div>
+                <div class="option" style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(70, 98, 230);"></div>
+                <div class="option" style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(228, 185, 176);"></div>
+                <div class="option" style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(96, 170, 166);"></div>
+
+            </div>
+
+
+            <div>
+                <form action="/submitNewDoor" method="post">
+                    <label for="name">name:</label>
+                    <input type="text" id="name" name="name"><br><br>
+        
+                    <label for="text">doorImage:</label>
+                    <input type="text" id="doorImage" name="doorImage"><br><br>
+        
+                    <label for="text">userId:</label>
+                    <input type="text" id="userId" name="userId"><br><br>
+        
+                    <input type="submit" value="submitNewDoor">
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="scrollable-column">
+                {% for image in doorInner_files %}
+                <div class="inner-container">
+                    <img src="{{ url_for('static', filename='../static/imga/doorInner/' + image) }}" alt="{{ image }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="container">
+            Where To Go?
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+
+
+            const images = document.querySelectorAll('.frame-container img');
+            let lastClickedImage = "/static/../static/imga/doorFrame/Frame1-pink-door0.4a5467b131b54aa7abc869e684eace0a.png"; // Variable to track the last clicked image
+            const innerImages = document.querySelectorAll('.inner-container img');
+            let lastInner = "/static/../static/imga/doorInner/door0-pink.73e5db9f75e790852e1c0d351df9b764.png"; // Variable to track the last clicked image
+
+
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    // Remove 'active' class from all images
+                    images.forEach(innerImg => innerImg.classList.remove('active'));
+                    // Add 'active' class to the clicked image
+                    this.classList.add('active');
+                    // Update the last clicked image
+                    lastClickedImage = this.getAttribute('src');
+                    console.log('Last clicked image:', lastClickedImage); // Logging to console
+                    updateImageDisplay(lastClickedImage, lastInner);
+                });
+            });
+
+
+
+
+            innerImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // Remove 'active' class from all images
+                    innerImages.forEach(innerImg => innerImg.classList.remove('active'));
+                    // Add 'active' class to the clicked image
+                    this.classList.add('active');
+                    // Update the last clicked image
+                    lastInner = this.getAttribute('src');
+                    console.log('Last clicked inner image:', lastInner); // Logging to console
+                    updateImageDisplay(lastClickedImage, lastInner);
+
+                });
+            });
+
+            updateImageDisplay(lastClickedImage, lastInner);
+
+        });
+
+
+
+        function updateImageDisplay(lastClickedImage, lastInner){
+            const frame = document.getElementById('frame');
+            const inner = document.getElementById('inner');
+
+            console.log(frame.src)
+
+            frame.src = lastClickedImage
+            inner.src = lastInner
+            frame.style.display = 'block'; // Show the image
+            inner.style.display = 'block'; // Show the image
+
+        }
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
