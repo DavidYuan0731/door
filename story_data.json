@@ -7,14 +7,13 @@
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618816291233!6m8!1m7!1sz2xHI4NGxMdNLtnUMGLVWw!2m2!1d41.90076679715661!2d12.48334424522482!3f31.914769339469288!4f36.98339319378121!5f0.7820865974627469"
     },
     "2": {
-        "story":  "It is a delicious yogurt ice cream store. When I was a international student at JHU, I bought lots of yogurt ice cream there with my boyfriend, when I’m sad or happy. Because of the pandemic, we left the US after graduation. I don’t know when will be our next time back.",
+        "story": "It is a delicious yogurt ice cream store. When I was a international student at JHU, I bought lots of yogurt ice cream there with my boyfriend, when I\u9225\u6a93 sad or happy. Because of the pandemic, we left the US after graduation. I don\u9225\u6a9b know when will be our next time back.",
         "name": "BY LITTLE GREY",
         "title": "The Door of Ice Cream",
-        "location":  "@Washington DC",
-        "google_map": "https://www.google.com/maps/embed?pb=!4v1616521161031!6m8!1m7!1sCAoSLEFGMVFpcE1SX2tUOVJUVjRPdkJuOUJETFBFa1pmc3NwbzRfU3RkVnlzMkJq!2m2!1d38.9026483812837!2d-77.061854679099!3f257.08773834156597!4f1.4337342545029799!5f0.7820865974627469" 
+        "location": "@Washington DC",
+        "google_map": "https://www.google.com/maps/embed?pb=!4v1616521161031!6m8!1m7!1sCAoSLEFGMVFpcE1SX2tUOVJUVjRPdkJuOUJETFBFa1pmc3NwbzRfU3RkVnlzMkJq!2m2!1d38.9026483812837!2d-77.061854679099!3f257.08773834156597!4f1.4337342545029799!5f0.7820865974627469"
     },
-
-    "3":{
+    "3": {
         "title": "The door of Slow Slow Bus",
         "story": "\u201cWhen I was studying aboard, I spent a ton of time here waiting for buses, because the buses were never on time. However, I didn\u2019t mind because not many people cares about on time in this city. I hope I can go back here where efficiency wasn\u2019t the goal. \u201d",
         "name": "LEXI",
@@ -35,61 +34,67 @@
         "location": "@Wuhan,China",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618446358209!6m8!1m7!1sCAoSLEFGMVFpcE1HQlowU0RXSU1YNW4wY0FlcU1UZDlUcTk3NzRfMUpSQjJKc0tZ!2m2!1d30.5475121!2d114.2957993!3f299.3301169468081!4f1.3965607015885837!5f0.7820865974627469"
     },
-    "6":{
+    "6": {
         "title": "The door of Sherlock\u2019s Adventure",
         "story": "\u201cSherlock Holmes lives in this house, and anyone who is interested in detective game novels will be interested in this.\u201d",
         "name": "SUMMER",
         "location": "@London,England",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618446400857!6m8!1m7!1st7-AXrTzW7kN44vWBCffGQ!2m2!1d51.52378567195865!2d-0.1582634089709072!3f266.49!4f-3.230000000000004!5f2.078427896034994"
     },
-    "7":{
+    "7": {
         "title": "The door of 3L Water",
         "story": "\u201cIt\u2019s always been a place I longing to be, and I hope to do my part\u201d",
         "name": "IVY",
         "location": "@Union Nations, NYC",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618446704765!6m8!1m7!1sCAoSLEFGMVFpcE5KR1Q2UnIyQ1dJTy1fOE9rTk4waFZORXY0U1VQN2gwdFp4WkUz!2m2!1d40.7488758!2d-73.9680091!3f181.75970885716106!4f20.207661615930434!5f0.7820865974627469"
     },
-    "8":{
+    "8": {
         "title": "The door of Happiness",
         "story": "\u201cMake myself happy and stay in good mood.\u201d",
         "name": "AUGENSTERN",
         "location": "@Copley Place, Boston",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618446934662!6m8!1m7!1sCAoSK0FGMVFpcE4tU1djRGQtc3Vld2lkNFpWMklES2kyUVlfdWZrME55NVdFUTQ.!2m2!1d42.34731457321956!2d-71.07832396471667!3f69.60771042278712!4f-2.756309905511614!5f0.7820865974627469"
     },
-    "9":{
+    "9": {
         "title": "The door of Home",
         "story": "\u201cWhere was I born and raised.\u201d",
         "name": "WINTER",
         "location": "@Plaus, Italy",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618447087655!6m8!1m7!1sCAoSLEFGMVFpcE1ySGo5eTluRkhVUzFTRXNxQ0poOEpOaF9RQWZYNXM4RDZ0OGhG!2m2!1d46.655555384713!2d11.044530433697!3f91.54941461884277!4f-6.445661003457204!5f0.7820865974627469"
     },
-    "10":{
+    "10": {
         "title": "The door of Fallen Flower",
         "story": "\u201cLiving in the south, I am wondering what the north looks like. I want to see the endless prairie, the people\uff0cthe life there.\u201d",
         "name": "YUYU",
         "location": "@Menggu,China",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618447121707!6m8!1m7!1shkCFeHbmURqcN3KXzhMVYg!2m2!1d46.40411231595181!2d96.30681087876849!3f196.52859267060475!4f18.75558215430776!5f0.7820865974627469"
     },
-    "11":{
+    "11": {
         "title": "The Door of Memory",
         "story": "\u201cWhen the coronavirus epidemic first broke out, my sister went there to provide help but never come back. I want to go there to see her.\u201d",
         "name": "LITTLE",
         "location": "@Wuhan,China",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1616676430103!6m8!1m7!1sCAoSLEFGMVFpcFBFS3E3ak92cUJSbkE0NkI4bUZJdTd3ZU9BWDJpQlkzc0NaVmtm!2m2!1d30.5938718!2d114.3018627!3f95.9854318976199!4f3.32887850636169!5f0.7820865974627469"
     },
-    "12":{
+    "12": {
         "title": "The door of Waterman",
         "story": "\u201cThere are many skeletons and zoological specimens. I used to spent a lot of time in this building putting all nighters doing homework. The building is so old that the building sing everytime we step on the floor. I have mixed feelings for the building, it is creepy but cute at the same time.\u201d",
         "name": "WATER",
         "location": "@Providence, RI",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1618447276901!6m8!1m7!1s1FYjTems0DxLTepb5h3RjA!2m2!1d41.82709491198416!2d-71.40808246169233!3f134.5245478792533!4f8.733908581266988!5f0.7820865974627469"
     },
-    "13":{
+    "13": {
         "title": "The Door of the Lunar Portal",
         "story": "\u201cFor many of us the time since the pandemic started has felt weird, for some of us the months flew by, for others time seems to almost stand still. And while on earth so many aspects of our lifes feel as if they are on pause, the planet is still turning and we are still moving through time and space. I'd like to travel to the moon so I could look at the earth turning at the same speed it always has been turning, I am sure it would be a calming sight.\u201d",
         "name": "MIA",
         "location": "@ Moon",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1616523574203!6m8!1m7!1szChzPIAn4RIAAAQvxgbyEg!2m2!1d29.56028532748453!2d-95.08539144618427!3f182.97!4f2.9599999999999937!5f0.7820865974627469"
+    },
+    "55bfd224-cbb8-4ae8-82f1-807992e2e049": {
+        "title": "Home",
+        "story": "I live here",
+        "name": "Kun",
+        "location": "10 City point",
+        "google_map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d40.6912178!2d-73.9822034!3d85.7!3m2!1i1024!2i768!4f13.1"
     }
-
 }

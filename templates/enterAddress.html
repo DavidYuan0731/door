@@ -22,15 +22,51 @@
         }
 
 
-        .outerContainer{
+        .outerContainer {
             display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
         }
 
-        .container {
-            margin-left: 385px;
-            width: 800px;
-            margin-top: 200px;
+
+        .middleContainer{
+            height: 100%;
+            touch-action: none;
+            user-select: none;
+            z-index: 1;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+            display: flex;
+            background: linear-gradient(rgb(255, 254, 247) 0%, rgb(250, 250, 250) 26.15%, rgb(250, 250, 250) 73.03%, rgb(247, 251, 255) 100%);
+            perspective: 880px;
+            transform-style: preserve-3d;
         }
+        
+
+        .container {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px;
+            font-size: 17px;
+            font-family: Lexend, sans-serif;
+            letter-spacing: 3px;
+            line-height: 130%;
+            text-decoration: none;
+        }
+
+        .containerForMaps{
+            width: 60%;
+            margin: 30px auto 0px;
+            display: flex;
+        }
+        
+        
 
 
         .input_box {
@@ -60,6 +96,54 @@
             left: 0px !important;
             right: 0px !important;
         }
+
+
+        .writeYourStory {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            width: 200px;
+            padding: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .pickYourDoor {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            width: 200px;
+            padding: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .forwardArrow {
+            width: 30px;
+            margin-top: 5px;
+            transform: rotate(180deg);
+        }
+
+        .backArrow {
+            width: 30px;
+            margin-top: 5px;
+        }
     </style>
 
 </head>
@@ -75,30 +159,42 @@
             <a href="/">Anywhere <br> Door <br> Collection </a>
         </div>
     </div>
-    
 
-    <div outerContainer>
-    <div class="container">
 
-        <h3>Where to Go</h3>
-        <!--The div element for the map -->
+    <div class="outerContainer">
+        <div class=""middleContainer>
+        <div class="container">
 
-        <div>
-            During the pandemic, if you have one chance to use the anywhere<br>door for a round
-            trip, where would you want to go? Drag the little<br>guy on the left map to preview in the street view!
+            <h3>Where to Go</h3>
+            <!--The div element for the map -->
+
+            <div>
+                During the pandemic, if you have one chance to use the anywhere<br>door for a round
+                trip, where would you want to go? Drag the little<br>guy on the left map to preview in the street view!
+            </div>
+
+            <div class="input_box">
+                <input placeholder="Enter an address" class="input_bar" id="address" autocomplete="off">
+                <span onclick="showStreetView()"> Submit </span>
+            </div>
+
+
+            <div id="containerForMaps">
+                <div id="map"></div>
+                <div id="pano"></div>
+            </div>
+
+
         </div>
-
-        <div class="input_box">
-            <input placeholder="Enter an address" class="input_bar" id="address" autocomplete="off">
-            <span onclick="showStreetView()"> Submit </span>
+            <a href="/writeStory">
+                <div class="writeYourStory">Write Your Story<img class="forwardArrow" src="../static/imga/backArrow.png">
+                </div>
+            </a>
+            <a href="/createDoor">
+                <div class="pickYourDoor">Pick Your Door<img class="backArrow" src="../static/imga/backArrow.png"></div>
+            </a>
         </div>
-        
-
-        <div id="map"></div>
-        <div id="pano"></div>
-        
     </div>
-</div>
 
 
 
@@ -141,10 +237,18 @@
                     });
                     console.log("saving to cache")
                     sessionStorage.setItem('address', address);
+                    google_map_link = generateEmbedURL(results[0].geometry.location.lat(), results[0].geometry.location.lng())
+                    sessionStorage.setItem('google_map', google_map_link);
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
+        }
+
+        function generateEmbedURL(lat, lng) {
+            const baseUrl = "https://www.google.com/maps/embed?pb=";
+            let pbParams = `!1m14!1m12!1m3!1d${lat}!2d${lng}!3d85.7!3m2!1i1024!2i768!4f13.1`;
+            return baseUrl + pbParams;
         }
 
 
@@ -164,5 +268,4 @@
 
 
 </body>
-
 </html>

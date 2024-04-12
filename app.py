@@ -1,11 +1,16 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 import json
 import os
+import uuid
 app = Flask(__name__)
+app.secret_key = os.urandom(24) 
+
 
 # Route to serve the HTML page
 @app.route('/')
 def index():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
     return render_template('index.html')
 
 # API route to provide JSON data
@@ -41,6 +46,9 @@ def tunnel(user_id):
 
 @app.route('/createDoor')
 def form():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+
     doorFrame_folder = os.path.join('static', 'imga', 'doorFrame')
     doorFrame_files = [f for f in os.listdir(doorFrame_folder) if f.endswith('.png')]
 
@@ -83,8 +91,47 @@ def append_data(data, filename='doors_data.json'):
 
 @app.route('/address')
 def address():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+    print(session['user_id'])
     return render_template('enterAddress.html')
 
+
+@app.route('/writeStory')
+def writeStory():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+    return render_template('writeStory.html')
+
+
+@app.route('/submitStory', methods=['POST'])
+def submitStory():
+    data = request.data  # Get the raw string of JSON data sent from the client
+    data_body = json.loads(data)
+    data_str = data_body.get("data")
+    write_to_story_json(json.loads(data_str))
+    return 'story has been saved'
+
+
+
+
+def write_to_story_json(data_dict):
+    newStory = {
+        "title": data_dict.get("nameOfDoor"),
+        "story": data_dict.get("story"),
+        "name": data_dict.get("byWho"),
+        "location": data_dict.get("address"),
+        "google_map": data_dict.get("google_map"),
+    }
+
+    print(newStory)
+
+    with open("story_data.json", 'r+') as f:
+        existing_data = json.load(f)
+        print(type(existing_data))
+        existing_data[session['user_id']] = newStory
+        f.seek(0)
+        json.dump(existing_data, f, indent=4)
 
 
 

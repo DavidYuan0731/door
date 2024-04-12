@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anywhere Door Collection</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=Piazzolla:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        .outerContainer {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .middleContainer {
+            height: 100%;
+            touch-action: none;
+            user-select: none;
+            z-index: 1;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+            display: flex;
+            background: linear-gradient(rgb(255, 254, 247) 0%, rgb(250, 250, 250) 26.15%, rgb(250, 250, 250) 73.03%, rgb(247, 251, 255) 100%);
+            perspective: 880px;
+            transform-style: preserve-3d;
+            font-family: Lexend, sans-serif;
+        }
+
+
+        .writeYourStoryOuter {
+            width: 100%;
+            text-align: center;
+            font-size: 17px;
+            font-family: Lexend, sans-serif;
+            letter-spacing: 3px;
+            line-height: 130%;
+            text-decoration: none;
+            margin-top: 80px;
+            margin-left: 240px;
+        }
+
+
+        .writeYourStory {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .description {
+            margin-top: 50px;
+            font-size: 15px;
+        }
+
+
+        .inputBoxOuter {
+            border: 1px solid black;
+            width: 51%;
+            min-width: 660px;
+            margin: 35px auto 0px;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+
+        .doorOf {
+            background: black;
+            height: 50px;
+            text-align: left;
+            padding: 0px 8px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .writeYourStoryHere {
+            height: 380px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid black;
+        }
+
+        .textArea {
+            height: 165px;
+            width: 100%;
+            margin: 0px;
+            padding: 20px 10px;
+            outline: none;
+            border: none;
+            resize: none;
+            background: transparent;
+            box-sizing: border-box;
+            display: block;
+            font-family: Lexend, sans-serif;
+            letter-spacing: 3px;
+        }
+
+        .byWho {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 18px 8px;
+        }
+
+
+        #yesSubmit {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            width: 200px;
+            padding: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .whereToGo {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            width: 200px;
+            padding: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .forwardArrow {
+            width: 30px;
+            margin-top: 5px;
+            transform: rotate(180deg);
+        }
+
+        .backArrow {
+            width: 30px;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+    <div id="outerContainer">
+        <div id="middleContainer">
+
+            <div id="text">
+                <div id="title">
+                    <a href="/">Anywhere <br> Door <br> Collection </a>
+                </div>
+            </div>
+
+            <div class="writeYourStoryOuter">
+
+                <div id="writeYourStory"> Write Your Story </div>
+
+                <div id="description">
+                    During the pandemic, if you have one chance to use the anywhere<br>door for a round
+                    trip, where would you want to go?
+                </div>
+
+
+                <div class="inputBoxOuter">
+                    <div class="doorOf"><span>The Door Of</span>&nbsp;<input id="nameOfDoor"
+                            placeholder="enter the name of your door">
+                    </div>
+                    <div class="writeYourStoryHere"><textarea id="story" placeholder="Write your story here..."
+                            class="textArea"></textarea>
+                        <div>0/100</div>
+                    </div>
+                    <div class="byWho">By&nbsp;<input id="byWho" placeholder="enter your name here"></div>
+                </div>
+
+            </div>
+
+            <a>
+                <div id="yesSubmit">Yes Submit!<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
+            </a>
+            <a href="/address">
+                <div class="whereToGo">Where To Go?<img class="backArrow" src="../static/imga/backArrow.png"></div>
+            </a>
+
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const yesSubmit = document.getElementById('yesSubmit');
+            const nameOfDoor = document.getElementById('nameOfDoor');
+            const story = document.getElementById('story');
+            const byWho = document.getElementById('byWho');
+
+            yesSubmit.addEventListener('click', function () {
+                // Save the input value into sessionStorage
+                sessionStorage.setItem('nameOfDoor', nameOfDoor.value);
+                sessionStorage.setItem('story', story.value);
+                sessionStorage.setItem('byWho', byWho.value);
+
+
+                let sessionObj = {};
+                for (let i = 0; i < sessionStorage.length; i++) {
+                    const key = sessionStorage.key(i);
+                    sessionObj[key] = sessionStorage.getItem(key);
+                }
+                const SessionJsonStr = JSON.stringify(sessionObj);
+
+                console.log(SessionJsonStr)
+
+
+                // Send the data to the Flask server
+                fetch('/submitStory', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+
+                    body: JSON.stringify({ data: SessionJsonStr })
+                })
+                    .then(response => response.text())
+                    .then(data => console.log('Success:', data))
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
