@@ -29,6 +29,7 @@ def story(user_id):
     f.close()
 
     story = storys[user_id]
+    print(story)
 
 
     return render_template('story.html', story=story)
@@ -110,6 +111,8 @@ def submitStory():
     data_body = json.loads(data)
     data_str = data_body.get("data")
     write_to_story_json(json.loads(data_str))
+    write_to_door_json(json.loads(data_str))
+    write_to_tunnel_json(json.loads(data_str))
     return 'story has been saved'
 
 
@@ -130,6 +133,33 @@ def write_to_story_json(data_dict):
         existing_data = json.load(f)
         print(type(existing_data))
         existing_data[session['user_id']] = newStory
+        f.seek(0)
+        json.dump(existing_data, f, indent=4)
+
+
+
+def write_to_door_json(data_dict):
+    newDoor = {
+        "name": data_dict.get("nameOfDoor"),
+        "doorImage": "door23.png",
+        "userId": session['user_id']
+    }
+    with open("doors_data.json", 'r+') as f:
+        existing_data = json.load(f)
+        existing_data[session['user_id']] = newDoor
+        f.seek(0)
+        json.dump(existing_data, f, indent=4)
+
+
+def write_to_tunnel_json(data_dict):
+    newTunnel = {
+        "story": data_dict.get("story"),
+        "id": session['user_id'],
+        "StoryImage":"story13.png"
+    }
+    with open("tunnel_data.json", 'r+') as f:
+        existing_data = json.load(f)
+        existing_data[session['user_id']] = newTunnel
         f.seek(0)
         json.dump(existing_data, f, indent=4)
 

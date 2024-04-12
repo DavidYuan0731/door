@@ -90,11 +90,32 @@
         "location": "@ Moon",
         "google_map": "https://www.google.com/maps/embed?pb=!4v1616523574203!6m8!1m7!1szChzPIAn4RIAAAQvxgbyEg!2m2!1d29.56028532748453!2d-95.08539144618427!3f182.97!4f2.9599999999999937!5f0.7820865974627469"
     },
-    "55bfd224-cbb8-4ae8-82f1-807992e2e049": {
-        "title": "Home",
-        "story": "I live here",
-        "name": "Kun",
-        "location": "10 City point",
-        "google_map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d40.6912178!2d-73.9822034!3d85.7!3m2!1i1024!2i768!4f13.1"
+    "1ce68c78-5e55-4187-9e52-0d4ffad1eff6": {
+        "title": "work",
+        "story": "I work here",
+        "name": "kun",
+        "location": "jfk 27",
+        "google_map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d40.7518471!2d-73.9833355!3d85.7!3m2!1i1024!2i768!4f13.1"
+    },
+    "625080dc-1420-48ac-8847-36016634003a": {
+        "title": "somwhere",
+        "story": "I have never been here",
+        "name": "kun",
+        "location": "555west",
+        "google_map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d40.7518471!2d-73.9833355!3d85.7!3m2!1i1024!2i768!4f13.1"
+    },
+    "b773b6b0-1248-441e-8527-51b1ae01cced": {
+        "title": "central parkl",
+        "story": "co",
+        "name": "kun",
+        "location": "central park, NY",
+        "google_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-73.9655834!3d40.7825547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+    },
+    "e37a0bc3-940c-44ee-a9b0-b1f5a5ee623e": {
+        "title": "LES",
+        "story": "lower east side",
+        "name": "kun",
+        "location": "lower east side",
+        "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9842724,40.715033&heading=0&pitch=0&fov=90"
     }
 }

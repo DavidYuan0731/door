@@ -7,7 +7,8 @@ fetch('/data')
 
       var container = document.getElementById('spin-container');
 
-      jsonData.doors.forEach(door => {
+      Object.keys(jsonData).forEach(userId => {
+        const door = jsonData[userId];
         const eachDoor = document.createElement('div');
         eachDoor.innerHTML = `<a href="../../tunnel/${door.userId}">
                                   <img src="../static/imga/test/${door.doorImage}" alt="door1">

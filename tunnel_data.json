@@ -1,69 +1,87 @@
-
-    {
-        "1": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "1",
-            "StoryImage": "story1.png"
-        },
-        "2": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "2",
-            "StoryImage": "story2.png"
-        },
-        "3": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "3",
-            "StoryImage": "story3.png"
-        },
-        "4": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "4",
-            "StoryImage": "story4.png"
-        },
-        "5": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "5",
-            "StoryImage": "story5.png"
-        },
-        "6": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "6",
-            "StoryImage": "story6.png"
-        },
-        "7": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "7",
-            "StoryImage": "story7.png"
-        },
-        "8": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "8",
-            "StoryImage": "story8.png"
-        },
-        "9": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "9",
-            "StoryImage": "story9.png"
-        },
-        "10": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "10",
-            "StoryImage": "story10.png"
-        },
-        "11": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "11",
-            "StoryImage": "story11.png"
-        },
-        "12": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "12",
-            "StoryImage":"story12.png"
-        },
-        "13": {
-            "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
-            "id": "13",
-            "StoryImage":"story13.png"
-        }
-    
+{
+    "1": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "1",
+        "StoryImage": "story1.png"
+    },
+    "2": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "2",
+        "StoryImage": "story2.png"
+    },
+    "3": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "3",
+        "StoryImage": "story3.png"
+    },
+    "4": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "4",
+        "StoryImage": "story4.png"
+    },
+    "5": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "5",
+        "StoryImage": "story5.png"
+    },
+    "6": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "6",
+        "StoryImage": "story6.png"
+    },
+    "7": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "7",
+        "StoryImage": "story7.png"
+    },
+    "8": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "8",
+        "StoryImage": "story8.png"
+    },
+    "9": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "9",
+        "StoryImage": "story9.png"
+    },
+    "10": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "10",
+        "StoryImage": "story10.png"
+    },
+    "11": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "11",
+        "StoryImage": "story11.png"
+    },
+    "12": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "12",
+        "StoryImage": "story12.png"
+    },
+    "13": {
+        "story": "I went there several years ago. When I made a wish in front of the fountain, a stranger bumped me and the coin in my hand fell to the ground and disappeared. This is a regret for me so I want to go there again.",
+        "id": "13",
+        "StoryImage": "story13.png"
+    },
+    "1ce68c78-5e55-4187-9e52-0d4ffad1eff6": {
+        "story": "I work here",
+        "id": "1ce68c78-5e55-4187-9e52-0d4ffad1eff6",
+        "StoryImage": "story13.png"
+    },
+    "625080dc-1420-48ac-8847-36016634003a": {
+        "story": "I have never been here",
+        "id": "625080dc-1420-48ac-8847-36016634003a",
+        "StoryImage": "story13.png"
+    },
+    "b773b6b0-1248-441e-8527-51b1ae01cced": {
+        "story": "co",
+        "id": "b773b6b0-1248-441e-8527-51b1ae01cced",
+        "StoryImage": "story13.png"
+    },
+    "e37a0bc3-940c-44ee-a9b0-b1f5a5ee623e": {
+        "story": "lower east side",
+        "id": "e37a0bc3-940c-44ee-a9b0-b1f5a5ee623e",
+        "StoryImage": "story13.png"
+    }
 }

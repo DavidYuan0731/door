@@ -114,6 +114,36 @@
             margin-top: 50px;
         }
 
+        .whereToGo {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            width: 200px;
+            padding: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .forwardArrow {
+            width: 30px;
+            margin-top: 5px;
+            transform: rotate(180deg);
+        }
+
+        .backArrow {
+            width: 30px;
+            margin-top: 5px;
+        }
+
+
 
     </style>
 
@@ -183,9 +213,9 @@
             </div>
         </div>
 
-        <div class="container">
-            Where To Go?
-        </div>
+        <a href="/address">
+            <div class="whereToGo">Where To Go?<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
+        </a>
 
     </div>
 

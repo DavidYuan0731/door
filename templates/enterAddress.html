@@ -237,7 +237,7 @@
                     });
                     console.log("saving to cache")
                     sessionStorage.setItem('address', address);
-                    google_map_link = generateEmbedURL(results[0].geometry.location.lat(), results[0].geometry.location.lng())
+                    google_map_link = generate_the_url(results[0].geometry.location)
                     sessionStorage.setItem('google_map', google_map_link);
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
@@ -245,10 +245,24 @@
             });
         }
 
-        function generateEmbedURL(lat, lng) {
+        function generate_the_url(location) {
+            const lat = location.lat();  // Get the latitude using the lat() method
+            const lng = location.lng();  // Get the longitude using the lng() method
+            console.log(lat)
+            console.log(lng)
+
+            // Base URL for Google Maps Embed API
             const baseUrl = "https://www.google.com/maps/embed?pb=";
-            let pbParams = `!1m14!1m12!1m3!1d${lat}!2d${lng}!3d85.7!3m2!1i1024!2i768!4f13.1`;
-            return baseUrl + pbParams;
+
+            // Construct the parameter block for the URL
+            const params = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lng},${lat}&heading=0&pitch=0&fov=90`
+
+
+            // Combine the base URL with the parameters to form the full embed URL
+            const embedUrl = baseUrl + params;
+
+            console.log(embedUrl)
+            return embedUrl;
         }
 
 
