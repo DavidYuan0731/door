@@ -117,5 +117,12 @@
         "name": "kun",
         "location": "lower east side",
         "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9842724,40.715033&heading=0&pitch=0&fov=90"
+    },
+    "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714": {
+        "title": "target",
+        "story": "this is target",
+        "name": "KUN",
+        "location": "10city point, NYC",
+        "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9825297,40.6912031&heading=0&pitch=0&fov=90"
     }
 }

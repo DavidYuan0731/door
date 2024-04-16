@@ -83,5 +83,10 @@
         "story": "lower east side",
         "id": "e37a0bc3-940c-44ee-a9b0-b1f5a5ee623e",
         "StoryImage": "story13.png"
+    },
+    "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714": {
+        "story": "this is target",
+        "id": "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714",
+        "StoryImage": "story13.png"
     }
 }

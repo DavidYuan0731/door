@@ -50,15 +50,15 @@ def form():
     if 'user_id' not in session:
         session['user_id'] = str(uuid.uuid4()) 
 
-    doorFrame_folder = os.path.join('static', 'imga', 'doorFrame')
+    doorFrame_folder = os.path.join('static', 'img', 'Frame', 'blue')
     doorFrame_files = [f for f in os.listdir(doorFrame_folder) if f.endswith('.png')]
 
-    doorInner_folder = os.path.join('static', 'imga', 'doorInner')
+    doorInner_folder = os.path.join('static', 'img', 'door', 'blue')
     doorInner_files = [f for f in os.listdir(doorInner_folder) if f.endswith('.png')]
 
 
 
-    return render_template('createDoor.html', doorFrame_files=doorFrame_files, doorInner_files=doorInner_files)
+    return render_template('createDoor.html', doorFrame_files=doorFrame_files, doorInner_files=doorInner_files, color="blue")
 
 
 

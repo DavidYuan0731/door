@@ -138,5 +138,10 @@
         "name": "LES",
         "doorImage": "door23.png",
         "userId": "e37a0bc3-940c-44ee-a9b0-b1f5a5ee623e"
+    },
+    "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714": {
+        "name": "target",
+        "doorImage": "door23.png",
+        "userId": "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714"
     }
 }
