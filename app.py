@@ -141,7 +141,7 @@ def write_to_story_json(data_dict):
 def write_to_door_json(data_dict):
     newDoor = {
         "name": data_dict.get("nameOfDoor"),
-        "doorImage": "door23.png",
+        "doorImage": data_dict.get("doorName"),
         "userId": session['user_id']
     }
     with open("doors_data.json", 'r+') as f:

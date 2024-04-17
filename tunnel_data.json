@@ -88,5 +88,10 @@
         "story": "this is target",
         "id": "d9e91dd3-bc39-49e1-b81a-d5f5ec2d2714",
         "StoryImage": "story13.png"
+    },
+    "a0263205-bcbd-4a93-b332-5af3714a6be1": {
+        "story": "chicken stop ",
+        "id": "a0263205-bcbd-4a93-b332-5af3714a6be1",
+        "StoryImage": "story13.png"
     }
 }

@@ -124,5 +124,12 @@
         "name": "KUN",
         "location": "10city point, NYC",
         "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9825297,40.6912031&heading=0&pitch=0&fov=90"
+    },
+    "a0263205-bcbd-4a93-b332-5af3714a6be1": {
+        "title": "chickenstop",
+        "story": "chicken stop ",
+        "name": "Q",
+        "location": "chickenstop brooklyn",
+        "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9498922,40.6802346&heading=0&pitch=0&fov=90"
     }
 }

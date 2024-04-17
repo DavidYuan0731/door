@@ -10,7 +10,6 @@
         href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=Piazzolla:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-
     <style>
         .outer_container {
             display: flex;
@@ -46,12 +45,16 @@
         }
 
         img {
-            width: 70%;
-            /* Images will resize to fit the container width */
-            display: block;
-            /* Ensures no inline whitespace gaps */
-            margin-bottom: 20px;
-            /* Space between images */
+            width: 100%;
+            margin-bottom: 10px;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        img.active {
+            filter: none;
+            /* Full color for active image */
         }
 
 
@@ -103,25 +106,18 @@
         .image-container {
             position: relative;
             width: 300px;
-            /* Set the width of the container */
             height: 200px;
-            /* Set the height of the container */
-            overflow: hidden;
-            /* Keeps everything neat */
         }
 
         .image-container img {
             position: absolute;
+            filter: none;
             top: 0;
             left: 0;
             max-width: 100%;
             /* Adjust this value based on how large you want the images to display */
         }
 
-        .image-container img:first-child {
-            z-index: -1;
-            /* This ensures the first image is on top if needed */
-        }
 
 
 
@@ -129,6 +125,7 @@
         .option {
             width: 30px;
             height: 30px;
+            margin: 10px;
             border-radius: 50%;
             background: rgb(136, 188, 116);
             cursor: pointer;
@@ -173,9 +170,7 @@
             margin-top: 5px;
         }
     </style>
-
 </head>
-
 
 <body>
 
@@ -185,52 +180,43 @@
         </div>
     </div>
 
+
     <div class="outer_container">
 
         <div class="container">
-            <div class="scrollable-column" id="frame-container"></div>
+            <div class="scrollable-column">
+                <div id="frame-container" ></div>
+            </div>
+
         </div>
 
         <div class="container">
+            
             <div class="image-container">
-                <img id="frame" alt="Image 1">
-                <img id="inner" alt="Image 2">
+                <img id="resultImage"  alt="Resulting Image">
             </div>
 
             <div class="optionarray">
-                    <div onclick="updateDoorColor('green')" class="option"
-                    style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(136, 188, 116)"></div>
-
-                
-                    <div onclick="updateDoorColor('orange')" class="option"
-                    style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(234, 101, 94);"></div>
-                
-                    <div onclick="updateDoorColor('blue')" class="option"
-                    style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(70, 98, 230);"></div>
-                
-                    <div onclick="updateDoorColor('pink')" class="option"
-                    style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(228, 185, 176);"></div>
-                
-                    <div onclick="updateDoorColor('greygreen')"  class="option"
-                    style="transform: scale(1); border: 1px solid rgb(0, 0, 0); background: rgb(96, 170, 166);"></div>
-
+                <div onclick="updateDoorColor('green')" class="option" style="background: rgb(136, 188, 116);"></div>
+                <div onclick="updateDoorColor('orange')" class="option" style="background: rgb(234, 101, 94);"></div>
+                <div onclick="updateDoorColor('blue')" class="option" style="background: rgb(70, 98, 230);"></div>
+                <div onclick="updateDoorColor('pink')" class="option" style="background: rgb(228, 185, 176);"></div>
+                <div onclick="updateDoorColor('greygreen')" class="option" style="background: rgb(96, 170, 166);"></div>
             </div>
         </div>
 
-
         <div class="container">
-            <div class="scrollable-column" id="inner-container"></div>
+            <div class="scrollable-column">
+
+                <div id="inner-container"></div>
+            </div>
         </div>
-
-
-        <a href="/address">
-            <div class="whereToGo">Where To Go?<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
-        </a>
 
     </div>
 
-
-
+    <a href="/address">
+        <div class="whereToGo">Where To Go?<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
+    </a>
 
 
 
@@ -238,119 +224,106 @@
 
 
     <script>
+        let lastClickedDoor = null;
+        let lastClickedFrame = null;
 
-        var currColor="blue";
-        var inputColor = {{ color| tojson }};
-        var doorFrame_files = {{ doorFrame_files| tojson }};
-        var doorInner_files = {{ doorInner_files| tojson }}
+
+        function loadInitialImages() {
+            var color="blue";
+
+            var container = document.getElementById('frame-container');
+            for (let i = 1; i <= 10; i++) {
+                const img = new Image();
+                img.src = `../static/img/Frame/${color}/Frame${i}-${color}.png`;
+
+                if(i==1){
+                    img.classList.add('active')
+                    lastClickedFrame = img;
+                }
+
+                img.addEventListener('click', function () {
+                    if (lastClickedFrame) {
+                        lastClickedFrame.classList.remove('active'); // Remove the active class from the previous image
+                    }
+                    lastClickedFrame = this; // Update the last clicked image to this one
+                    this.classList.add('active'); // Add the active class to make this image colorful
+                    updateImageSource();
+                });
+                container.appendChild(img);
+            }
+
+
+            container = document.getElementById('inner-container');
+            for (let i = 1; i <= 10; i++) {
+                const img = new Image();
+                img.src = `../static/img/door/${color}/door${i}-${color}.png`;
+
+                if(i==1){
+                    img.classList.add('active')
+                    lastClickedDoor = img;
+                }
+
+                img.addEventListener('click', function () {
+                    if (lastClickedDoor) {
+                        lastClickedDoor.classList.remove('active'); // Remove the active class from the previous image
+                    }
+                    lastClickedDoor = this; // Update the last clicked image to this one
+                    this.classList.add('active'); // Add the active class to make this image colorful
+                    updateImageSource();
+                });
+                container.appendChild(img);
+            }
+        }
+        
+
+
 
 
         function updateDoorColor(color) {
-            console.log("replacing" + currColor + " with" +  color)
-            currColor = color
-            doorFrame_files = doorFrame_files.map(filename => filename.replace(currColor, color));
-            doorInner_files = doorInner_files.map(filename => filename.replace(currColor, color));
-            
-
-            var frameContainer = document.getElementById('frame-container');
-            frameContainer.innerHTML=''
-            Object.keys(doorFrame_files).forEach(index => {
-                const doorFrame_file = doorFrame_files[index]
-                const eachDoor = document.createElement('div');
-                eachDoor.innerHTML = `<div class="frame-container">
-                        <img id="framImg" src="../static/img/Frame/${color}/${doorFrame_file}">
-                    </div>`
-                frameContainer.appendChild(eachDoor);
-            });
-
-
-            var innerContainer = document.getElementById('inner-container');
-            innerContainer.innerHTML=''
-            Object.keys(doorInner_files).forEach(index => {
-                const doorInner_file = doorInner_files[index]
-                const eachDoor = document.createElement('div');
-                eachDoor.innerHTML = `<div class="inner-container">
-                        <img id="framImg" src="../static/img/door/${color}/${doorInner_file}">
-                    </div>`
-                innerContainer.appendChild(eachDoor);
-            });
+            if (lastClickedDoor) {
+                lastClickedDoor.src = lastClickedDoor.src.replace(/(\w+)\/(\w+)-\w+\.png$/, `${color}/$2-${color}.png`);
+                updateImageSource();
+            }
+            if (lastClickedFrame) {
+                lastClickedFrame.src = lastClickedFrame.src.replace(/(\w+)\/(\w+)-\w+\.png$/, `${color}/$2-${color}.png`);
+                updateImageSource();
+            }
         }
 
 
-        updateDoorColor(inputColor);
 
 
+        function generateCustomPath(img1, img2) {
+            // Regular expression to extract the base name (e.g., "Frame2") and color from the frame URL
+            const frameRegex = /\/Frame\/\w+\/(Frame\d+)-\w+\.png$/;
+            const frameMatch = img1.src.match(frameRegex);
+            const frameBaseName = frameMatch ? frameMatch[1] : null;
 
-//----------------------------------------------------------------------------------------------
+            // Regular expression to extract the base name (e.g., "door1") and color from the door URL
+            const doorRegex = /\/door\/\w+\/(door\d+)-(\w+)\.png$/;
+            const doorMatch = img2.src.match(doorRegex);
+            const doorBaseName = doorMatch ? doorMatch[1] : null;
+            const colorFromImg2 = doorMatch ? doorMatch[2] : null;
 
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-
-
-
-            const images = document.querySelectorAll('.frame-container img');
-            let lastClickedImage = "/static/../static/imga/doorFrame/Frame1-pink-door0.4a5467b131b54aa7abc869e684eace0a.png"; // Variable to track the last clicked image
-            const innerImages = document.querySelectorAll('.inner-container img');
-            let lastInner = "/static/../static/imga/doorInner/door0-pink.73e5db9f75e790852e1c0d351df9b764.png"; // Variable to track the last clicked image
-
-
-            images.forEach(img => {
-                img.addEventListener('click', function () {
-                    // Remove 'active' class from all images
-                    images.forEach(innerImg => innerImg.classList.remove('active'));
-                    // Add 'active' class to the clicked image
-                    this.classList.add('active');
-                    // Update the last clicked image
-                    lastClickedImage = this.getAttribute('src');
-                    console.log('Last clicked image:', lastClickedImage); // Logging to console
-                    updateImageDisplay(lastClickedImage, lastInner);
-                });
-            });
-
-
-
-
-            innerImages.forEach(img => {
-                img.addEventListener('click', function () {
-                    // Remove 'active' class from all images
-                    innerImages.forEach(innerImg => innerImg.classList.remove('active'));
-                    // Add 'active' class to the clicked image
-                    this.classList.add('active');
-                    // Update the last clicked image
-                    lastInner = this.getAttribute('src');
-                    console.log('Last clicked inner image:', lastInner); // Logging to console
-                    updateImageDisplay(lastClickedImage, lastInner);
-
-                });
-            });
-
-            updateImageDisplay(lastClickedImage, lastInner);
-
-        });
-
-
-
-        function updateImageDisplay(lastClickedImage, lastInner) {
-            const frame = document.getElementById('frame');
-            const inner = document.getElementById('inner');
-
-            console.log(frame.src)
-
-            frame.src = lastClickedImage
-            inner.src = lastInner
-            frame.style.display = 'block'; // Show the image
-            inner.style.display = 'block'; // Show the image
-
+            // Combining the extracted parts into the final path
+            if (frameBaseName && doorBaseName && colorFromImg2) {
+                return `${frameBaseName}-${colorFromImg2}-${doorBaseName}`;
+            } else {
+                return "Invalid path"; // Return an error message if regex fails
+            }
         }
 
+        function updateImageSource() {
+            const resultPath = generateCustomPath(lastClickedFrame, lastClickedDoor);
+            console.log(resultPath)
+            document.getElementById('resultImage').src = `../static/img/combined/${resultPath}.png`;
+            sessionStorage.setItem('doorName', `${resultPath}.png`);
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded', loadInitialImages);
     </script>
-
-
-
-
-
 </body>
 
 </html>
