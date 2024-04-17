@@ -148,5 +148,15 @@
         "name": "chickenstop",
         "doorImage": "Frame2-greygreen-door3.png",
         "userId": "a0263205-bcbd-4a93-b332-5af3714a6be1"
+    },
+    "e3f9264f-685b-4ab5-8711-a774be6cc41e": {
+        "name": "tennis",
+        "doorImage": "Frame5-orange-door9.png",
+        "userId": "e3f9264f-685b-4ab5-8711-a774be6cc41e"
+    },
+    "77ed3476-63ff-474a-bc26-f3ddcf81aa17": {
+        "name": "sdafasd",
+        "doorImage": "Frame2-greygreen-door3.png",
+        "userId": "77ed3476-63ff-474a-bc26-f3ddcf81aa17"
     }
 }

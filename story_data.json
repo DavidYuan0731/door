@@ -131,5 +131,19 @@
         "name": "Q",
         "location": "chickenstop brooklyn",
         "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-73.9498922,40.6802346&heading=0&pitch=0&fov=90"
+    },
+    "e3f9264f-685b-4ab5-8711-a774be6cc41e": {
+        "title": "tennis",
+        "story": "sdvfsd",
+        "name": "csdf",
+        "location": "tennis center nyc",
+        "google_map": "https://www.google.com/maps/embed?pb=https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-74.0059728,40.7127753&heading=0&pitch=0&fov=90"
+    },
+    "77ed3476-63ff-474a-bc26-f3ddcf81aa17": {
+        "title": "sdafasd",
+        "story": "asdfas",
+        "name": "asdfads",
+        "location": "10 city point",
+        "google_map": "https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&location=40.6912178,-73.9822034&heading=210&pitch=10&fov=90"
     }
 }

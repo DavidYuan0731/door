@@ -252,17 +252,8 @@
             console.log(lng)
 
             // Base URL for Google Maps Embed API
-            const baseUrl = "https://www.google.com/maps/embed?pb=";
-
-            // Construct the parameter block for the URL
-            const params = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lng},${lat}&heading=0&pitch=0&fov=90`
-
-
-            // Combine the base URL with the parameters to form the full embed URL
-            const embedUrl = baseUrl + params;
-
-            console.log(embedUrl)
-            return embedUrl;
+            const baseUrl = `https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&location=${lat},${lng}&heading=210&pitch=10&fov=90`
+            return baseUrl;
         }
 
 
