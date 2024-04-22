@@ -14,24 +14,36 @@
         .outer_container {
             display: flex;
             height: 100vh;
-            /* Ensuring the full viewport height is utilized */
+            /* Full viewport height */
+            width: 70%;
+            /* Take the full width of the viewport */
+            justify-content: center;
+            /* Center the containers horizontally */
+            margin: 0 auto;
+            /* Center the outer container in case it's narrower than the viewport */
         }
 
         .container {
-            margin-left: 350px;
-            margin-top: 250px;
+            flex: 1;
+            /* Each container takes an equal fraction of the horizontal space */
             display: flex;
-            height: 100vh;
-            /* Ensuring the full viewport height is utilized */
+            flex-direction: column;
+            /* Aligns child elements (like .scrollable-column) vertically */
+            align-items: center;
+            /* Center-aligns the child elements horizontally */
+            overflow: hidden;
+            /* Prevents overflow of child elements */
+            margin-top: 0px;
+            /* Adjust the top margin as necessary */
         }
-
 
         .scrollable-column {
             flex: 1;
-            width: 50%;
-            /* Only take up 20% of the viewport width */
+            /* Takes up the full available space in its flex container (.container) */
+            width: 80%;
+            /* Makes sure the width spans the entire space of its parent */
             overflow-y: auto;
-            /* Enable vertical scrolling */
+            /* Enables vertical scrolling */
             padding: 10px;
             scrollbar-width: none;
             /* For Firefox */
@@ -41,8 +53,9 @@
 
         .scrollable-column::-webkit-scrollbar {
             display: none;
-            /* For Chrome, Safari, and Opera */
+            /* Hides the scrollbar in WebKit browsers like Chrome and Safari */
         }
+
 
         img {
             width: 100%;
@@ -59,70 +72,32 @@
 
 
 
-        .frame-container {
-            display: flex;
-        }
-
-        .frame-container img {
-            filter: none;
-            /* Remove filter when active */
-            transition: filter 0.3s;
-            /* Smooth transition for the filter effect */
-            filter: grayscale(100%);
-            /* Start images in grayscale */
-            cursor: pointer;
-            /* Indicates the images can be clicked */
-        }
-
-        .frame-container img.active {
-            filter: none;
-            /* Remove filter when active */
+       #frame-container {
+            margin-top: 20vh;
         }
 
 
-
-        .inner-container {
-            display: flex;
+        #inner-container {
+            margin-top: 20vh;
         }
-
-        .inner-container img {
-            filter: none;
-            /* Remove filter when active */
-            transition: filter 0.3s;
-            /* Smooth transition for the filter effect */
-            filter: grayscale(100%);
-            /* Start images in grayscale */
-            cursor: pointer;
-            /* Indicates the images can be clicked */
-        }
-
-        .inner-container img.active {
-            filter: none;
-            /* Remove filter when active */
-        }
-
 
 
         .image-container {
-            position: relative;
-            width: 300px;
-            height: 200px;
+            display: block;
+            width: 80%;
+            margin: 120px auto 0px;
         }
 
         .image-container img {
-            position: absolute;
+            width: 100%;
+            margin-bottom: 20px;
             filter: none;
-            top: 0;
-            left: 0;
-            max-width: 100%;
-            /* Adjust this value based on how large you want the images to display */
         }
-
-
 
 
 
         .option {
+            display: block;
             width: 30px;
             height: 30px;
             margin: 10px;
@@ -135,10 +110,24 @@
 
         .optionarray {
             display: flex;
-            -webkit-box-align: center;
             align-items: center;
+            /* Vertically aligns the options within the array */
             justify-content: space-around;
-            margin-top: 50px;
+            /* Distributes the options evenly horizontally */
+            width: 100%;
+            /* Takes the full width to utilize space for spreading the options */
+            margin-top: 20px;
+            /* Provides vertical spacing from the image-container */
+        }
+
+        .pickYourDoor{
+            display: block;
+            font-weight: 600;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            margin: 80px auto 0px;
+            text-align: center;
         }
 
         .whereToGo {
@@ -169,6 +158,9 @@
             width: 30px;
             margin-top: 5px;
         }
+
+
+
     </style>
 </head>
 
@@ -185,15 +177,17 @@
 
         <div class="container">
             <div class="scrollable-column">
-                <div id="frame-container" ></div>
+                <div id="frame-container"></div>
             </div>
 
         </div>
 
         <div class="container">
-            
+
+            <h2 id="text" class="pickYourDoor"> Pick Your Door </h2>
+
             <div class="image-container">
-                <img id="resultImage"  alt="Resulting Image">
+                <img id="resultImage" alt="Resulting Image">
             </div>
 
             <div class="optionarray">
@@ -224,19 +218,19 @@
 
 
     <script>
-        let lastClickedDoor = null;
-        let lastClickedFrame = null;
+        let lastClickedDoor = `../static/img/door/blue/door0-blue.png`;
+        let lastClickedFrame = `../static/img/Frame/blue/Frame1-blue.png`;
 
 
         function loadInitialImages() {
-            var color="blue";
+            var color = "blue";
 
             var container = document.getElementById('frame-container');
             for (let i = 1; i <= 10; i++) {
                 const img = new Image();
                 img.src = `../static/img/Frame/${color}/Frame${i}-${color}.png`;
 
-                if(i==1){
+                if (i == 1) {
                     img.classList.add('active')
                     lastClickedFrame = img;
                 }
@@ -258,7 +252,7 @@
                 const img = new Image();
                 img.src = `../static/img/door/${color}/door${i}-${color}.png`;
 
-                if(i==1){
+                if (i == 1) {
                     img.classList.add('active')
                     lastClickedDoor = img;
                 }
@@ -273,8 +267,10 @@
                 });
                 container.appendChild(img);
             }
+
+            updateImageSource();
         }
-        
+
 
 
 
