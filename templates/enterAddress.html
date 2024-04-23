@@ -187,11 +187,11 @@
 
         </div>
             <a href="/writeStory">
-                <div class="writeYourStory">Write Your Story<img class="forwardArrow" src="../static/imga/backArrow.png">
+                <div class="writeYourStory" id="text">Write Your Story<img class="forwardArrow" src="../static/imga/backArrow.png">
                 </div>
             </a>
             <a href="/createDoor">
-                <div class="pickYourDoor">Pick Your Door<img class="backArrow" src="../static/imga/backArrow.png"></div>
+                <div class="pickYourDoor" id="text">Pick Your Door<img class="backArrow" src="../static/imga/backArrow.png"></div>
             </a>
         </div>
     </div>
@@ -208,7 +208,9 @@
         let geocoder;
 
         function initMap() {
-            const defaultLocation = { lat: -34.397, lng: 150.644 };  // Default map center
+            geocoder = new google.maps.Geocoder();
+
+            const defaultLocation = { lat: 29.7917468, lng: 30.8942692 };  // Default map center
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: defaultLocation
@@ -222,11 +224,14 @@
                 }
             });
             map.setStreetView(panorama);
-            geocoder = new google.maps.Geocoder();
+            showStreetView("The Great Pyramid of Giza");
+           
         }
 
-        function showStreetView() {
-            const address = document.getElementById('address').value;
+        function showStreetView(address) {
+            if (!address) {
+                address = document.getElementById('address').value;
+            }
             geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status === 'OK') {
                     map.setCenter(results[0].geometry.location);

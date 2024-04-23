@@ -2,17 +2,20 @@ fetch('/data')
   .then(response => response.json())
   .then(jsonData => {
 
-    var container = document.getElementById('spin-container');
+    var container = document.getElementById('theGrid');
 
     Object.keys(jsonData).forEach(userId => {
       const door = jsonData[userId];
       const eachDoor = document.createElement('div');
+      eachDoor.classList.add('grid-item');
       eachDoor.innerHTML = `<a href="../../tunnel/${door.userId}">
-                                  <img src="../static/img/combined/${door.doorImage}" alt="door1">
-                                  <p>${door.name}</p>
-                                </a> `
-      container.appendChild(eachDoor.childNodes[0]);
+                              <img src="../static/img/combined/${door.doorImage}" alt="door1">
+                              <p>${door.name}</p>
+                              </a>`
+      container.appendChild(eachDoor);
     });
+
+
 
 
 

@@ -1,4 +1,4 @@
-fetch('/data')
+fetch('/dataLastTwenty')
   .then(response => response.json())
   .then(jsonData => {
 
@@ -16,10 +16,12 @@ fetch('/data')
 
 
 
+
+
     var w = window.innerWidth;
     var h = window.innerHeight;
 
-    var radius = w / 3.2;
+    var radius = w /3.2;
     var autoRotate = true;
     var rotateSpeed = -200;
     var imgWidth = w * 0.07;

@@ -12,41 +12,27 @@
 
 
     <style>
-        .outerContainer {
+        #outerContainer {
             display: flex;
             flex-direction: column;
             -webkit-box-align: center;
             align-items: center;
             width: 100vw;
             height: 100vh;
-        }
-
-        .middleContainer {
-            height: 100%;
-            touch-action: none;
-            user-select: none;
-            z-index: 1;
-            margin: 0px;
-            padding: 0px;
-            overflow: hidden;
-            display: flex;
-            background: linear-gradient(rgb(255, 254, 247) 0%, rgb(250, 250, 250) 26.15%, rgb(250, 250, 250) 73.03%, rgb(247, 251, 255) 100%);
-            perspective: 880px;
-            transform-style: preserve-3d;
-            font-family: Lexend, sans-serif;
+            z-index: 10;
         }
 
 
         .writeYourStoryOuter {
-            width: 100%;
             text-align: center;
             font-size: 17px;
             font-family: Lexend, sans-serif;
             letter-spacing: 3px;
-            line-height: 130%;
             text-decoration: none;
             margin-top: 80px;
-            margin-left: 240px;
+            background-color: white;
+            opacity: 0.8;
+            z-index: 99;
         }
 
 
@@ -82,6 +68,7 @@
         }
 
         .writeYourStoryHere {
+            position: absolute;
             height: 380px;
             box-sizing: border-box;
             position: relative;
@@ -157,6 +144,16 @@
             width: 30px;
             margin-top: 5px;
         }
+
+        #googleMapIframe {
+            position: absolute;
+            width: 100vw;
+            /* 100% of the viewport width */
+            height: 100vh;
+            /* 100% of the viewport height */
+            border: none;
+            /* Optional: removes the border */
+        }
     </style>
 
 </head>
@@ -170,51 +167,63 @@
 
 
 
-    <div id="outerContainer">
-        <div id="middleContainer">
-
-            <div id="text">
-                <div id="title">
-                    <a href="/">Anywhere <br> Door <br> Collection </a>
-                </div>
-            </div>
-
-            <div class="writeYourStoryOuter">
-
-                <div id="writeYourStory"> Write Your Story </div>
-
-                <div id="description">
-                    During the pandemic, if you have one chance to use the anywhere<br>door for a round
-                    trip, where would you want to go?
-                </div>
-
-
-                <div class="inputBoxOuter">
-                    <div class="doorOf"><span>The Door Of</span>&nbsp;<input id="nameOfDoor"
-                            placeholder="enter the name of your door">
-                    </div>
-                    <div class="writeYourStoryHere"><textarea id="story" placeholder="Write your story here..."
-                            class="textArea"></textarea>
-                        <div>0/100</div>
-                    </div>
-                    <div class="byWho">By&nbsp;<input id="byWho" placeholder="enter your name here"></div>
-                </div>
-
-            </div>
-
-            <a>
-                <div id="yesSubmit">Yes Submit!<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
-            </a>
-            <a href="/address">
-                <div class="whereToGo">Where To Go?<img class="backArrow" src="../static/imga/backArrow.png"></div>
-            </a>
-
+    <div id="text">
+        <div id="title">
+            <a href="/">Anywhere <br> Door <br> Collection </a>
         </div>
     </div>
+
+    <div id="outerContainer">
+        <iframe id="googleMapIframe"></iframe>
+        <div class="writeYourStoryOuter">
+
+            <div id="writeYourStory"> Write Your Story </div>
+
+            <div id="description">
+                During the pandemic, if you have one chance to use the anywhere<br>door for a round
+                trip, where would you want to go?
+            </div>
+
+
+            <div class="inputBoxOuter">
+                <div class="doorOf"><span>The Door Of</span>&nbsp;<input id="nameOfDoor"
+                        placeholder="enter the name of your door">
+                </div>
+                <div class="writeYourStoryHere"><textarea id="story" placeholder="Write your story here..."
+                        class="textArea" oninput="updateWordCount()"></textarea>
+                </div>
+                <div>Word Count: <span id="wordCount">0</span></div>
+                <div class="byWho">By&nbsp;<input id="byWho" placeholder="enter your name here"></div>
+            </div>
+
+        </div>
+
+        <a>
+            <div id="yesSubmit">Yes Submit!<img class="forwardArrow" src="../static/imga/backArrow.png"></div>
+        </a>
+
+        <a href="/address">
+            <div class="whereToGo" id="text">Where To Go?<img class="backArrow" src="../static/imga/backArrow.png">
+            </div>
+        </a>
+
     </div>
 
 
     <script>
+
+        window.onload = function () {
+            // Retrieve the map URL from sessionStorage
+            var mapUrl = sessionStorage.getItem('google_map');
+            var mapIframe = document.getElementById('googleMapIframe');
+            if (mapUrl && mapIframe) {
+                mapIframe.src = mapUrl; // Set the iframe source to the retrieved URL
+            } else {
+                console.error('No map URL found in sessionStorage or iframe not available.');
+            }
+        };
+
+
         document.addEventListener("DOMContentLoaded", function () {
 
             const yesSubmit = document.getElementById('yesSubmit');
@@ -251,8 +260,20 @@
                     .then(response => response.text())
                     .then(data => console.log('Success:', data))
                     .catch(error => console.error('Error:', error));
+
+                    window.location.href = "/finishDoor";
+
             });
+
         });
+    
+        function updateWordCount() {
+            var text = document.getElementById('story').value.trim();
+            var words = text.split(/\s+/).filter(function(n) { return n != '' });
+            document.getElementById('wordCount').innerText = words.length + " / 100";
+        }
+    
+    
     </script>
 
 

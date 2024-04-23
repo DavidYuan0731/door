@@ -158,5 +158,15 @@
         "name": "sdafasd",
         "doorImage": "Frame2-greygreen-door3.png",
         "userId": "77ed3476-63ff-474a-bc26-f3ddcf81aa17"
+    },
+    "5a9f0c7f-41f4-4c11-bb9f-2d3146195ee9": {
+        "name": "",
+        "doorImage": "Frame1-blue-door1.png",
+        "userId": "5a9f0c7f-41f4-4c11-bb9f-2d3146195ee9"
+    },
+    "2b54950d-c5df-433c-bd1c-cb5a75e168ae": {
+        "name": "",
+        "doorImage": "Frame1-blue-door1.png",
+        "userId": "2b54950d-c5df-433c-bd1c-cb5a75e168ae"
     }
 }

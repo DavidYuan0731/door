@@ -145,5 +145,19 @@
         "name": "asdfads",
         "location": "10 city point",
         "google_map": "https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&location=40.6912178,-73.9822034&heading=210&pitch=10&fov=90"
+    },
+    "5a9f0c7f-41f4-4c11-bb9f-2d3146195ee9": {
+        "title": "",
+        "story": "",
+        "name": "",
+        "location": "The Great Pyramid of Giza",
+        "google_map": "https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&location=29.9791705,31.1342046&heading=210&pitch=10&fov=90"
+    },
+    "2b54950d-c5df-433c-bd1c-cb5a75e168ae": {
+        "title": "",
+        "story": "",
+        "name": "",
+        "location": "The Great Pyramid of Giza",
+        "google_map": "https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAbGnOV31R_OajbC4QiPIil4CqGpdiB_Vc&location=29.9791705,31.1342046&heading=210&pitch=10&fov=90"
     }
 }

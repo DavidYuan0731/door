@@ -13,13 +13,43 @@ def index():
         session['user_id'] = str(uuid.uuid4()) 
     return render_template('index.html')
 
+@app.route('/indexNew')
+def indexNew():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+    return render_template('indexNew.html')
+
+@app.route('/indexAll')
+def indexAll():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+    return render_template('indexAll.html')
+
+
+@app.route('/finishDoor')
+def finishDoor():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4()) 
+    return render_template('finishDoor.html')
+
+
 # API route to provide JSON data
 @app.route('/data')
 def data():
     f = open('doors_data.json')
-    doors = json.load(f)
+    doors = json.load(f)            
     f.close()
     return doors
+
+
+@app.route('/dataLastTwenty')
+def dataLastTwenty():
+    with open('doors_data.json', 'r') as f:
+        doors = json.load(f) 
+
+    door_list = list(doors.values())
+    last_doors = door_list[-20:]
+    return jsonify(last_doors) 
 
 
 @app.route('/story/<user_id>')
