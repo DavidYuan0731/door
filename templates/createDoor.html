@@ -220,10 +220,9 @@
     <script>
         let lastClickedDoor = `../static/img/door/blue/door0-blue.png`;
         let lastClickedFrame = `../static/img/Frame/blue/Frame1-blue.png`;
-
+        var color = "blue";
 
         function loadInitialImages() {
-            var color = "blue";
 
             var container = document.getElementById('frame-container');
             for (let i = 1; i <= 10; i++) {
@@ -240,8 +239,9 @@
                         lastClickedFrame.classList.remove('active'); // Remove the active class from the previous image
                     }
                     lastClickedFrame = this; // Update the last clicked image to this one
-                    this.classList.add('active'); // Add the active class to make this image colorful
+                    updateFrameOrInnerColor();
                     updateImageSource();
+                    this.classList.add('active'); // Add the active class to make this image colorful
                 });
                 container.appendChild(img);
             }
@@ -262,8 +262,9 @@
                         lastClickedDoor.classList.remove('active'); // Remove the active class from the previous image
                     }
                     lastClickedDoor = this; // Update the last clicked image to this one
-                    this.classList.add('active'); // Add the active class to make this image colorful
+                    updateFrameOrInnerColor();
                     updateImageSource();
+                    this.classList.add('active'); // Add the active class to make this image colorful
                 });
                 container.appendChild(img);
             }
@@ -275,21 +276,26 @@
 
 
 
-        function updateDoorColor(color) {
+        function updateDoorColor(newColor) {
+            color = newColor;
+            updateFrameOrInnerColor();
+            updateImageSource();
+        }
+
+
+        function updateFrameOrInnerColor() {
             if (lastClickedDoor) {
                 lastClickedDoor.src = lastClickedDoor.src.replace(/(\w+)\/(\w+)-\w+\.png$/, `${color}/$2-${color}.png`);
-                updateImageSource();
             }
             if (lastClickedFrame) {
                 lastClickedFrame.src = lastClickedFrame.src.replace(/(\w+)\/(\w+)-\w+\.png$/, `${color}/$2-${color}.png`);
-                updateImageSource();
             }
         }
 
 
 
-
         function generateCustomPath(img1, img2) {
+            console.log(color)
             // Regular expression to extract the base name (e.g., "Frame2") and color from the frame URL
             const frameRegex = /\/Frame\/\w+\/(Frame\d+)-\w+\.png$/;
             const frameMatch = img1.src.match(frameRegex);
@@ -302,8 +308,8 @@
             const colorFromImg2 = doorMatch ? doorMatch[2] : null;
 
             // Combining the extracted parts into the final path
-            if (frameBaseName && doorBaseName && colorFromImg2) {
-                return `${frameBaseName}-${colorFromImg2}-${doorBaseName}`;
+            if (frameBaseName && doorBaseName && color) {
+                return `${frameBaseName}-${color}-${doorBaseName}`;
             } else {
                 return "Invalid path"; // Return an error message if regex fails
             }
